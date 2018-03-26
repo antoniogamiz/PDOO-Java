@@ -27,47 +27,23 @@ public class Dice {
         generator=new Random();
     }
     
-    int initWithNHangars(){
-        if( generator.nextFloat() < NHANGARSPROB )
-            return 0;
-        else
-            return 1;
-    }
+    int initWithNHangars(){ return ( generator.nextFloat() < NHANGARSPROB ) ? 0 : 1;}
     
     int initWithNWeapons(){
         float p = generator.nextFloat();
         
         if(p < NWEAPONSPROB)
             return 1;
-        else if( NWEAPONSPROB <= p && p < NWEAPONSPROB*2 )
-            return 2;
-        else
-            return 3;
+        else 
+            return ( NWEAPONSPROB <= p && p < NWEAPONSPROB*2 ) ? 2 : 3;
     }
     
-    int initWithNShields(){
-        if( generator.nextFloat() < NSHIELDSPROB )
-            return 0;
-        else
-            return 1;        
-    }
+    int initWithNShields(){ return ( generator.nextFloat() < NSHIELDSPROB ) ? 0 : 1; }
     
-    int whoStarts(int nPlayers){
-        return generator.nextInt(nPlayers);
-    }
+    int whoStarts(int nPlayers){ return generator.nextInt(nPlayers); }
     
-    GameCharacter firstShot(){
-        if( generator.nextFloat() < FIRSTSHOTPROB )
-            return GameCharacter.SPACESTATION;
-        else
-            return GameCharacter.ENEMYSTARSHIP;
-    }
+    GameCharacter firstShot(){ return ( generator.nextFloat() < FIRSTSHOTPROB ) ? GameCharacter.SPACESTATION : GameCharacter.ENEMYSTARSHIP; }
     
-    boolean spaceStationMoves(float speed){
-        if( generator.nextFloat() < speed )
-            return true;
-        else
-            return false;
-    }
+    boolean spaceStationMoves(float speed){ return ( generator.nextFloat() < speed ) ? true : false; }
     
 }

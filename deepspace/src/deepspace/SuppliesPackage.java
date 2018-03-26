@@ -38,5 +38,9 @@ public class SuppliesPackage {
     }
     
 
+    @Override
+    public String toString() {
+        return "SuppliesPackage{" + "ammoPower=" + ammoPower + ", fuelUnits=" + fuelUnits + ", shieldPower=" + shieldPower + '}';
+    }
 
 }

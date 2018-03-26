@@ -45,6 +45,13 @@ public class Loot {
         return nMedals;
     }
 
-        
+    LootToUI getUIversion() {
+        return new LootToUI(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Loot{" + "nSupplies=" + nSupplies + ", nWeapons=" + nWeapons + ", nShields=" + nShields + ", nHangars=" + nHangars + ", nMedals=" + nMedals + '}';
+    } 
 
 }

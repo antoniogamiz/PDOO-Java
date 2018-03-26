@@ -44,4 +44,13 @@ public class Weapon {
         else
             return 1.0f;
     }
+    
+    WeaponToUI getUIversion(){
+        return new WeaponToUI(this);
+    }
+    
+    @Override
+    public String toString() {
+        return "Weapon{" + "name=" + name + ", type=" + type + ", uses=" + uses + '}';
+    }
 }
