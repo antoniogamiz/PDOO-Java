@@ -65,7 +65,16 @@ public class SpaceStation {
     
     public void discardWeaponInHangar(int i){ if(hangar!=null) hangar.removeWeapon(i); }
     
-    public float fire(){ throw new UnsupportedOperationException(); }
+    public float fire()
+    {
+        int size = weapons.size();
+        int factor = 1;
+        
+        for(int i=0; i<size; i++) factor*=weapons.get(i).useIt();
+        
+        return factor*ammoPower;
+    
+    }
 
     public float getAmmoPower() { return ammoPower; }
 
