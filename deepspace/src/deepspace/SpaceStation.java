@@ -116,7 +116,15 @@ public class SpaceStation {
     
     public void move(){ fuelUnits -= getSpeed()*fuelUnits; }
     
-    public float protection(){ throw new UnsupportedOperationException(); }
+    public float protection()
+    {
+        int size = shieldBoosters.size();
+        int factor = 1;
+        
+        for(int i=0; i<size; i++) factor*=shieldBoosters.get(i).useIt();
+        
+        return shieldPower*factor;
+    }
     
     public void receiveHangar(Hangar h){ if(hangar==null) hangar = h; }
     
@@ -126,7 +134,23 @@ public class SpaceStation {
         return false;
     }
     
-    public ShotResult receiveShot(float shot){ throw new UnsupportedOperationException(); }
+    public ShotResult receiveShot(float shot)
+    {
+        float myProtection = protection();
+        
+        if( myProtection >= shot )
+        {
+            shieldPower-=SHIELDLOSSPERUNITSHOT*shot;
+            shieldPower=Math.max(0.0f, shieldPower);
+            
+            return ShotResult.RESIST;
+        }
+        else
+        {
+            shieldPower=0.0f;
+            return ShotResult.DONOTRESIST;
+        }
+    }
 
     public void receiveSupplies(SuppliesPackage s){
         ammoPower += s.getAmmoPower();
