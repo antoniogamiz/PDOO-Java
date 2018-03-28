@@ -67,7 +67,13 @@ public class Hangar {
 
     public ArrayList<Weapon> getWeapons() { return weapons; }
     
-    public Weapon removeWeapon(int w){ return weapons.remove(w); }
+    public Weapon removeWeapon(int w)
+    { 
+        if( w>=0 && w<weapons.size() ) 
+            return weapons.remove(w); 
+        else
+            return null;
+    }
    
     public ShieldBooster removeShieldBooster(int s){ return shieldBoosters.remove(s); }
 }
