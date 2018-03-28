@@ -68,12 +68,20 @@ public class Damage {
                     w.remove(index);
                 }
             }
-            return new Damage(new_weapons, ns);
+
+            if( new_weapons.size()==0 && ns==0 )
+                return null;
+            else
+                return new Damage(new_weapons, ns);
         }
         else
         {
             int nw = ( nWeapons > w.size() ) ? w.size() : nWeapons;
-            return new Damage(nw, ns);
+
+            if( nw==0 && ns==0 ) 
+                return null;
+            else
+                return new Damage(nw, ns);
         }
     }
     
