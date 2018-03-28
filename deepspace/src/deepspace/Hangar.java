@@ -75,5 +75,11 @@ public class Hangar {
             return null;
     }
    
-    public ShieldBooster removeShieldBooster(int s){ return shieldBoosters.remove(s); }
+    public ShieldBooster removeShieldBooster(int s)
+    { 
+        if( s>=0 && s<shieldBoosters.size() )
+            return shieldBoosters.remove(s); 
+        else
+            return null;
+    }
 }
