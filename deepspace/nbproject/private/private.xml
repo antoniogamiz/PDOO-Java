@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/Loot.java</file>
             <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/SpaceStation.java</file>
             <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/GameUniverse.java</file>
-            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/Damage.java</file>
-            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/EnemyStarShip.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/CardDeck.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/CardDealer.java</file>
         </group>
     </open-files>
 </project-private>
