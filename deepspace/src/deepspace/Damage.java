@@ -50,7 +50,7 @@ public class Damage {
         return new DamageToUI(this);
     }
 
-    Damage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s)
+    public Damage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s)
     {
         int ns = ( nShields > s.size() ) ? s.size() : nShields;
         
