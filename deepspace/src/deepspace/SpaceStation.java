@@ -141,7 +141,12 @@ public class SpaceStation {
         }
     }
     
-    public void move(){ fuelUnits -= getSpeed()*fuelUnits; }
+    public void move(){
+     if(fuelUnits - fuelUnits*getSpeed() <= 0)
+            fuelUnits= 0;
+        else
+            fuelUnits -= fuelUnits*getSpeed();
+    }
     
     public float protection()
     {
