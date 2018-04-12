@@ -69,7 +69,7 @@ public class Damage {
                 }
             }
 
-            if( new_weapons.size()==0 && ns==0 )
+            if( new_weapons.isEmpty() && ns==0 )
                 return null;
             else
                 return new Damage(new_weapons, ns);
