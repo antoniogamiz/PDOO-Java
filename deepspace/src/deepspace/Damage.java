@@ -17,7 +17,7 @@ public class Damage {
     private int nWeapons;
     private ArrayList<WeaponType> weapons;
 
-    Damage(int w, int s, ArrayList<WeaponType> wl)
+    private Damage(int w, int s, ArrayList<WeaponType> wl)
     {
         if( wl!=null )
         {
