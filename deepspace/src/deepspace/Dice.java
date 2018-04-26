@@ -17,6 +17,7 @@ public class Dice {
     private final float NSHIELDSPROB;
     private final float NWEAPONSPROB;
     private final float FIRSTSHOTPROB;
+    private final float EXTRAEFFICIENCYPROB;
     private Random generator;
     
     Dice(){
@@ -46,4 +47,5 @@ public class Dice {
     
     boolean spaceStationMoves(float speed){ return ( generator.nextFloat() < speed ) ? true : false; }
     
+    boolean extraEfficiency(){ return (generator.nextFloat() >= EXTRAEFFICIENCYPROB) ? true:false; }
 }
