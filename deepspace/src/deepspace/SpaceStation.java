@@ -43,6 +43,19 @@ public class SpaceStation implements SpaceFighter{
         pendingDamage = null;
     }
     
+    SpaceStation(SpaceStation sp)
+    {
+        name=sp.name;
+        ammoPower=sp.ammoPower;
+        fuelUnits=sp.fuelUnits;
+        shieldPower=sp.shieldPower;
+        for(int i=0; i<sp.weapons.size(); i++) weapons.add(sp.weapons.get(i));
+        for(int i=0; i<sp.shieldBoosters.size(); i++) shieldBoosters.add(sp.shieldBoosters.get(i));
+        nMedals=sp.nMedals;
+        hangar=sp.hangar;
+        pendingDamage=sp.pendingDamage; 
+    }
+    
     public void cleanUpMountedItems()
     {
         for(Weapon x: weapons)
@@ -197,7 +210,7 @@ public class SpaceStation implements SpaceFighter{
         return false;
     }
     
-    public void setLoot(Loot loot)
+    public Transformation setLoot(Loot loot)
     {
         CardDealer dealer= CardDealer.getInstance();
         
@@ -208,6 +221,11 @@ public class SpaceStation implements SpaceFighter{
         for(int i=0; i<loot.getNShields(); i++) receiveShieldBooster(dealer.nextShieldBooster());
         
         nMedals+=loot.getNMedals();
+        
+        if( loot.getEfficient() ) return Transformation.GETEFFICIENT;
+        if( loot.spaceCity() ) return Transformation.SPACECITY;
+        return Transformation.NOTRANSFORM;
+    
     }
     
     public void setPendingDamage(Damage d){ pendingDamage= d.adjust(weapons, shieldBoosters); }
