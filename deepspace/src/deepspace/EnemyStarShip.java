@@ -23,7 +23,7 @@ public class EnemyStarShip {
         ammoPower = a;
         shieldPower = s;
         loot = new Loot(l.getNSupplies(), l.getNWeapons(), l.getNShields(), l.getNHangars(), l.getNMedals());
-        damage = new Damage(d);
+        damage = d;
     }
     
     EnemyStarShip(EnemyStarShip e){ this(e.name, e.ammoPower, e.shieldPower, e.loot, e.damage); }
