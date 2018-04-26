@@ -15,18 +15,21 @@ public abstract class Damage {
     
     private int nShields;
 
-    private Damage(int s) { nShields=s; }
-
-    Damage(Damage d) { nShields=d.getNShields(); }
+    Damage(int s) { nShields=s; }
+    
+    public abstract Damage copy(Damage d);
     
     abstract DamageToUI getUIversion();
     
+    public int adjustShieldBoosters(ArrayList<ShieldBooster> s){ return ( nShields > s.size() ) ? s.size() : nShields; }
+    
     public abstract Damage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s);
-     
-    public abstract void discardWeapon(Weapon w);    
+    
+    public abstract void discardWeapon(Weapon w); 
+    
     public void discardShieldBooster() { if(nShields > 0) nShields--; }   
     
-    public abstract boolean hasNoEffect();
+    public boolean hasNoEffect(){ return getNShields()==0; };
    
     public int getNShields(){ return nShields; }
     
