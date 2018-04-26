@@ -17,12 +17,25 @@ public class Loot {
     private int nHangars;
     private int nMedals;
     
-    Loot(int nSupplies, int nWeapons, int nShields, int nHangars, int nMedals){
+    private boolean getEfficient;
+    private boolean spaceCity;
+    
+    Loot(int nSupplies, int nWeapons, int nShields, int nHangars, int nMedals, boolean ef, boolean city){
         this.nSupplies=nSupplies;
         this.nWeapons=nWeapons;
         this.nShields=nShields;
         this.nHangars=nHangars;
         this.nMedals=nMedals;
+        this.getEfficient=ef;
+        this.spaceCity=city;
+    }
+    
+    public boolean getEfficient(){
+        return getEfficient;
+    }
+    
+    public boolean spaceCity(){
+        return spaceCity;
     }
     
     public int getNSupplies(){
@@ -33,7 +46,7 @@ public class Loot {
         return nWeapons;
     }
 
-        public int getNShields(){
+    public int getNShields(){
         return nShields;
     }
 
