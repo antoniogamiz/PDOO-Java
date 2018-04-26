@@ -30,6 +30,8 @@ public class Loot {
         this.spaceCity=city;
     }
     
+    Loot(int nSupplies_, int nWeapons_, int nShields_, int nHangars_, int nMedals_){ this(nSupplies_, nWeapons_, nShields_, nHangars_, nMedals_, false, false); }
+    
     public boolean getEfficient(){
         return getEfficient;
     }
