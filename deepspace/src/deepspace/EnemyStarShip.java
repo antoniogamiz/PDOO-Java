@@ -9,7 +9,7 @@ package deepspace;
  *
  * @author antonio
  */
-public class EnemyStarShip {
+public class EnemyStarShip implements SpaceFighter{
     
     private float ammoPower;
     private String name;
@@ -30,6 +30,7 @@ public class EnemyStarShip {
     
     EnemyToUI getUIversion(){ return new EnemyToUI(this); }
     
+    @Override
     public float fire(){ return ammoPower; }
 
     public float getAmmoPower() { return ammoPower; }
@@ -42,7 +43,9 @@ public class EnemyStarShip {
 
     public float getShieldPower() { return shieldPower; }
     
+    @Override
     public float protection(){ return shieldPower; }
     
+    @Override
     public ShotResult receiveShot(float shot){ return (shieldPower < shot) ? ShotResult.DONOTRESIST : ShotResult.RESIST; }     
 }

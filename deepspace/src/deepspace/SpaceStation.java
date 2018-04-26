@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author antonio
  */
-public class SpaceStation {
+public class SpaceStation implements SpaceFighter{
  
     private static final int MAXFUEL = 100; 
     private static final double SHIELDLOSSPERUNITSHOT=0.1; 
@@ -92,6 +92,7 @@ public class SpaceStation {
     
     public void discardWeaponInHangar(int i){ if(hangar!=null) hangar.removeWeapon(i); }
     
+    @Override
     public float fire()
     {
         int size = weapons.size();
@@ -143,6 +144,7 @@ public class SpaceStation {
     
     public void move(){ fuelUnits -= getSpeed()*fuelUnits; }
     
+    @Override
     public float protection()
     {
         int size = shieldBoosters.size();
@@ -161,6 +163,7 @@ public class SpaceStation {
         return false;
     }
     
+    @Override
     public ShotResult receiveShot(float shot)
     {
         float myProtection = protection();
