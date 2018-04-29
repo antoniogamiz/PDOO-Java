@@ -82,4 +82,11 @@ public class Hangar {
         else
             return null;
     }
+
+    @Override
+    public String toString() {
+        return "Hangar{" + "maxElements=" + maxElements + ", shieldBoosters=" + shieldBoosters + ", weapons=" + weapons + '}';
+    }
+
+
 }

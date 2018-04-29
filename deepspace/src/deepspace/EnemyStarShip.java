@@ -25,6 +25,11 @@ public class EnemyStarShip implements SpaceFighter{
         loot = new Loot(l.getNSupplies(), l.getNWeapons(), l.getNShields(), l.getNHangars(), l.getNMedals(), false, false);
         damage = d;
     }
+
+    @Override
+    public String toString() {
+        return "EnemyStarShip{" + "ammoPower=" + ammoPower + ", name=" + name + ", shieldPower=" + shieldPower + ", damage=" + damage.toString() + '}';
+    }
     
     EnemyStarShip(EnemyStarShip e){ this(e.name, e.ammoPower, e.shieldPower, e.loot, e.damage); }
     
