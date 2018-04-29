@@ -140,7 +140,7 @@ class CardDealer {
     private void createEnemies() {
         Loot regularLoot0=new Loot(1,2,1,1,1, true, false);
         Loot regularLoot1=new Loot(1,1,2,1,1, true, false);
-        Loot badLoot=new Loot(1,1,1,0,1, false, false);
+        Loot badLoot=new Loot(1,1,1,1,1, false, false);
         Loot goodLoot=new Loot(2,2,2,1,2, true, true);
         
         Damage regularDamage0=new NumericDamage(2,1); 
@@ -209,8 +209,8 @@ class CardDealer {
         
         //Enemigos que transforman
         
-        Loot transformLoot0=new Loot(1,1,1,0,1,true,false);
-        Loot transformLoot1=new Loot(1,1,1,0,1,false,true);
+        Loot transformLoot0=new Loot(1,1,1,1,1,true,false);
+        Loot transformLoot1=new Loot(1,1,1,1,1,false,true);
         
         enemies.add(new EnemyStarShip("Enemigo transforma 0",200,100,transformLoot0,regularDamage0));  
         enemies.add(new EnemyStarShip("Enemigo transforma 1",100,200,transformLoot1,regularDamage1));           
