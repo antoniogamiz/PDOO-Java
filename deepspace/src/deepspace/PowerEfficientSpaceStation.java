@@ -13,7 +13,7 @@ public class PowerEfficientSpaceStation extends SpaceStation{
     
     private final float EFFICIENCYFACTOR=1.1f;
     
-    PowerEfficientSpaceStation (SpaceStation station) { super(station); } 
+    public PowerEfficientSpaceStation (SpaceStation station) { super(station); } 
     
     @Override
     public float fire() {
