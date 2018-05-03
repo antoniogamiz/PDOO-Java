@@ -13,7 +13,7 @@ public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
     private final float EXTRAEFFICIENCY=1.2f;
     private Dice dice;
     
-    BetaPowerEfficientSpaceStation(SpaceStation station) { super(station); }
+    public BetaPowerEfficientSpaceStation(SpaceStation station) { super(station); }
     
     public float fire() {
         if (dice.extraEfficiency()) {
