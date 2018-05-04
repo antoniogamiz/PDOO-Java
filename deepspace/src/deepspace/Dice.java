@@ -25,7 +25,7 @@ public class Dice {
         NSHIELDSPROB=0.25f;
         NWEAPONSPROB=0.33f;
         FIRSTSHOTPROB=0.5f;
-        EXTRAEFFICIENCYPROB=1.2f;
+        EXTRAEFFICIENCYPROB=0.8f;
         generator=new Random();
     }
     
