@@ -20,7 +20,7 @@ public class Loot {
     private boolean getEfficient;
     private boolean spaceCity;
     
-    Loot(int nSupplies, int nWeapons, int nShields, int nHangars, int nMedals, boolean ef, boolean city){
+    protected Loot(int nSupplies, int nWeapons, int nShields, int nHangars, int nMedals, boolean ef, boolean city){
         this.nSupplies=nSupplies;
         this.nWeapons=nWeapons;
         this.nShields=nShields;
