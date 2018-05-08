@@ -114,7 +114,7 @@ public class GameUniverse {
     
     private void makeStationEfficient() 
     {
-        currentStation=(dice.extraEfficiency()) ? new PowerEfficientSpaceStation(currentStation): new BetaPowerEfficientSpaceStation(currentStation);    
+        currentStation=(dice.extraEfficiency()) ? new BetaPowerEfficientSpaceStation(currentStation): new PowerEfficientSpaceStation(currentStation);    
     }
     
     private void createSpaceCity()
