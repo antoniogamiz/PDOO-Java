@@ -57,6 +57,7 @@ public class Deepspace {
         System.out.println( "La estacion "+( ( result==CombatResult.STATIONWINSANDCONVERTS ) ? "" : "no ") + "se ha transformado" );
         System.out.println(game.toString());
         
+        game.nextTurn();
         
         System.out.println("\n\nLuchando con el mismo enemigo, con la estacion transformada");
 

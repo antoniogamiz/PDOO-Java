@@ -78,18 +78,18 @@ public class GameUniverse {
         {
             Loot loot=enemy.getLoot();
             Transformation t = station.setLoot(loot);
+            combatResult = CombatResult.STATIONWINS;
             if(t == Transformation.GETEFFICIENT)
             {
                 makeStationEfficient();
-                return CombatResult.STATIONWINSANDCONVERTS;
+                combatResult = CombatResult.STATIONWINSANDCONVERTS;
             }
             else if (t == Transformation.SPACECITY)
             {
                 createSpaceCity();
-                return CombatResult.STATIONWINSANDCONVERTS;
+                combatResult = CombatResult.STATIONWINSANDCONVERTS;
             }
             
-            combatResult = CombatResult.STATIONWINS;
         }
         
         gameState.next(turns, spaceStations.size());
