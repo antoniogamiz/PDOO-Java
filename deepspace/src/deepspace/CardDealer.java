@@ -71,6 +71,9 @@ class CardDealer {
     }
     
     private void createSuppliesPackages() {
+        //Aniado un nuevo paquete de suministros de prueba (para que siempre gane la estacion)
+        suppliesPackages.add(new SuppliesPackage(100000,100000,100000)); //primer jugador
+        suppliesPackages.add(new SuppliesPackage(100000,100000,100000)); //segundo jugador
         suppliesPackages.add(new SuppliesPackage(1,10,1));
         suppliesPackages.add(new SuppliesPackage(1,10,1));
         suppliesPackages.add(new SuppliesPackage(1,10,1));
@@ -177,6 +180,13 @@ class CardDealer {
         mediumSpecificDamage0=new SpecificDamage(new ArrayList(Arrays.asList(WeaponType.LASER,
                                                                         WeaponType.MISSILE)),2);  
         
+        //Loot l0=new Loot(1,1,1,1,1,true,false);
+        //enemies.add(new EnemyStarShip("enemy0",0,0,l0,regularDamage0));
+        //Loot l1=new Loot(1,1,1,1,1,false,true);
+        //enemies.add(new EnemyStarShip("enemy1",0,0,l1,regularDamage0));
+        Loot l2=new Loot(1,1,1,1,1,true,true);
+        enemies.add(new EnemyStarShip("enemy2",0,0,l2,regularDamage0));        
+        
         enemies.add(new EnemyStarShip("Enemigo fácil -1",0,0,regularLoot0,lowDamage0));
         enemies.add(new EnemyStarShip("Enemigo fácil -1",0,10,badLoot,lowDamage0));
         enemies.add(new EnemyStarShip("Enemigo fácil -1",10,0,badLoot,lowDamage0));
@@ -214,6 +224,7 @@ class CardDealer {
         
         enemies.add(new EnemyStarShip("Enemigo transforma 0",200,100,transformLoot0,regularDamage0));  
         enemies.add(new EnemyStarShip("Enemigo transforma 1",100,200,transformLoot1,regularDamage1));           
+    
     }
 }
 

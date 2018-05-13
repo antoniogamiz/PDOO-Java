@@ -11,7 +11,7 @@ package deepspace;
  */
 public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
     private final float EXTRAEFFICIENCY=1.2f;
-    private Dice dice;
+    private Dice dice=new Dice();
     
     public BetaPowerEfficientSpaceStation(SpaceStation station) { super(station); }
     
@@ -22,4 +22,8 @@ public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
            return super.fire();
         }
     }
+
+    @Override
+    public String toString(){ return "BETAPOWEREFFICIENT "+super.toString(); }
+
 }

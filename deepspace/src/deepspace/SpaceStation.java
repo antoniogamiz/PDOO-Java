@@ -49,8 +49,8 @@ public class SpaceStation implements SpaceFighter{
         ammoPower=sp.ammoPower;
         fuelUnits=sp.fuelUnits;
         shieldPower=sp.shieldPower;
-        for(int i=0; i<sp.weapons.size(); i++) weapons.add(sp.weapons.get(i));
-        for(int i=0; i<sp.shieldBoosters.size(); i++) shieldBoosters.add(sp.shieldBoosters.get(i));
+        if( sp.weapons!=null ) for(int i=0; i<sp.weapons.size(); i++) weapons.add(sp.weapons.get(i));
+        if( sp.shieldBoosters!=null ) for(int i=0; i<sp.shieldBoosters.size(); i++) shieldBoosters.add(sp.shieldBoosters.get(i));
         nMedals=sp.nMedals;
         hangar=sp.hangar;
         pendingDamage=sp.pendingDamage; 
@@ -108,13 +108,13 @@ public class SpaceStation implements SpaceFighter{
     @Override
     public float fire()
     {
-        int size = weapons.size();
-        int factor = 1;
+        float factor= 1.0f;
         
-        for(int i=0; i<size; i++) factor*=weapons.get(i).useIt();
+        if(weapons!=null)
+            for(Weapon w: weapons)
+                factor *= w.useIt();  
         
-        return factor*ammoPower;
-    
+        return ammoPower*factor;    
     }
 
     public float getAmmoPower() { return ammoPower; }
@@ -160,12 +160,13 @@ public class SpaceStation implements SpaceFighter{
     @Override
     public float protection()
     {
-        int size = shieldBoosters.size();
-        int factor = 1;
+        float factor= 1.0f;
         
-        for(int i=0; i<size; i++) factor*=shieldBoosters.get(i).useIt();
+        if(shieldBoosters!=null)
+            for(ShieldBooster s: shieldBoosters)
+                factor *= s.useIt();
         
-        return shieldPower*factor;
+        return shieldPower*factor;    
     }
     
     public void receiveHangar(Hangar h){ if(hangar==null) hangar = h; }
@@ -221,8 +222,7 @@ public class SpaceStation implements SpaceFighter{
         for(int i=0; i<loot.getNShields(); i++) receiveShieldBooster(dealer.nextShieldBooster());
         
         nMedals+=loot.getNMedals();
-        
-        System.out.println(loot.toString());
+                
         if( loot.getEfficient() ) return Transformation.GETEFFICIENT;
         if( loot.spaceCity() ) return Transformation.SPACECITY;
         return Transformation.NOTRANSFORM;

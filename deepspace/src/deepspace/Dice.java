@@ -48,5 +48,5 @@ public class Dice {
     
     boolean spaceStationMoves(float speed){ return ( generator.nextFloat() < speed ) ? true : false; }
     
-    boolean extraEfficiency(){ return (generator.nextFloat() >= EXTRAEFFICIENCYPROB) ? true:false; }
+    boolean extraEfficiency(){ /*return (generator.nextFloat() >= EXTRAEFFICIENCYPROB) ? true:false;*/ return true; }
 }

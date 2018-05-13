@@ -29,5 +29,8 @@ public class PowerEfficientSpaceStation extends SpaceStation{
     public Transformation setLoot(Loot loot){
         super.setLoot(loot);
         return Transformation.NOTRANSFORM;
-}
+    }
+    
+    @Override
+    public String toString(){ return "POWEREFFICIENT "+super.toString(); }
 }

@@ -78,7 +78,7 @@ public class GameUniverse {
         {
             Loot loot=enemy.getLoot();
             Transformation t = station.setLoot(loot);
-            if(t == Transformation.GETEFFICIENT && !haveSpaceCity)
+            if(t == Transformation.GETEFFICIENT)
             {
                 makeStationEfficient();
                 return CombatResult.STATIONWINSANDCONVERT;

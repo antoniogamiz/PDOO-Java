@@ -19,7 +19,6 @@ public class SpaceCity extends SpaceStation{
     SpaceCity(SpaceStation base, ArrayList<SpaceStation> rest)
     {
         super(base);
-        System.out.println(base.toString());
         this.base=base;
         this.collaborators=rest;
     }
