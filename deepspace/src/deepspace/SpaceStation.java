@@ -222,6 +222,7 @@ public class SpaceStation implements SpaceFighter{
         
         nMedals+=loot.getNMedals();
         
+        System.out.println(loot.toString());
         if( loot.getEfficient() ) return Transformation.GETEFFICIENT;
         if( loot.spaceCity() ) return Transformation.SPACECITY;
         return Transformation.NOTRANSFORM;

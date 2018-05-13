@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class NumericDamage extends Damage{
     
     int nWeapons;
-
+    
     NumericDamage(int n, int s){ super(s); nWeapons=n; }
 
     @Override

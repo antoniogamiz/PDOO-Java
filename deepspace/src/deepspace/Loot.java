@@ -20,7 +20,7 @@ public class Loot {
     private boolean getEfficient;
     private boolean spaceCity;
     
-    protected Loot(int nSupplies, int nWeapons, int nShields, int nHangars, int nMedals, boolean ef, boolean city){
+    /*protected*/ Loot(int nSupplies, int nWeapons, int nShields, int nHangars, int nMedals, boolean ef, boolean city){
         this.nSupplies=nSupplies;
         this.nWeapons=nWeapons;
         this.nShields=nShields;
@@ -30,7 +30,8 @@ public class Loot {
         this.spaceCity=city;
     }
     
-    protected Loot(int nSupplies_, int nWeapons_, int nShields_, int nHangars_, int nMedals_){ this(nSupplies_, nWeapons_, nShields_, nHangars_, nMedals_, false, false); }
+   
+    Loot(int nSupplies_, int nWeapons_, int nShields_, int nHangars_, int nMedals_){ this(nSupplies_, nWeapons_, nShields_, nHangars_, nMedals_, false, false); }
     
     public boolean getEfficient(){
         return getEfficient;
@@ -66,7 +67,7 @@ public class Loot {
 
     @Override
     public String toString() {
-        return "Loot{" + "nSupplies=" + nSupplies + ", nWeapons=" + nWeapons + ", nShields=" + nShields + ", nHangars=" + nHangars + ", nMedals=" + nMedals + '}';
-    } 
+        return "Loot{" + "nSupplies=" + nSupplies + ", nWeapons=" + nWeapons + ", nShields=" + nShields + ", nHangars=" + nHangars + ", nMedals=" + nMedals + ", getEfficient=" + getEfficient + ", spaceCity=" + spaceCity + '}';
+    }
 
 }

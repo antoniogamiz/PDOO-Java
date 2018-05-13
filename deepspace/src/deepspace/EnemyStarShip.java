@@ -22,7 +22,7 @@ public class EnemyStarShip implements SpaceFighter{
         name = n;
         ammoPower = a;
         shieldPower = s;
-        loot = new Loot(l.getNSupplies(), l.getNWeapons(), l.getNShields(), l.getNHangars(), l.getNMedals(), false, false);
+        loot = l;
         damage = d;
     }
 
