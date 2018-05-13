@@ -81,12 +81,12 @@ public class GameUniverse {
             if(t == Transformation.GETEFFICIENT)
             {
                 makeStationEfficient();
-                return CombatResult.STATIONWINSANDCONVERT;
+                return CombatResult.STATIONWINSANDCONVERTS;
             }
             else if (t == Transformation.SPACECITY)
             {
                 createSpaceCity();
-                return CombatResult.STATIONWINSANDCONVERT;
+                return CombatResult.STATIONWINSANDCONVERTS;
             }
             
             combatResult = CombatResult.STATIONWINS;

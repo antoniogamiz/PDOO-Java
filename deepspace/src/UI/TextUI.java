@@ -75,7 +75,7 @@ public class TextUI {
                     System.exit (0);
                 }
                 break;
-              case STATIONWINSANDCONVERT :
+              case STATIONWINSANDCONVERTS :
                 pause ("\n Has GANADO el combate. Además te has transformado. Disfruta de tu botín.");
                 if (controller.haveAWinner()) {
                     pause ("\n\n **** **** ****  HAS GANADO LA PARTIDA  **** **** ****\n");

@@ -54,7 +54,7 @@ public class Deepspace {
         
         result=game.combat();
         System.out.println("Resultado de la batalla: "+result);
-        System.out.println( "La estacion "+( ( result==CombatResult.STATIONWINSANDCONVERT ) ? "" : "no ") + "se ha transformado" );
+        System.out.println( "La estacion "+( ( result==CombatResult.STATIONWINSANDCONVERTS ) ? "" : "no ") + "se ha transformado" );
         System.out.println(game.toString());
         
         
@@ -62,7 +62,7 @@ public class Deepspace {
 
         result=game.combat();
         System.out.println("Resultado de la batalla: "+result);
-        System.out.println( "La estacion "+( ( result==CombatResult.STATIONWINSANDCONVERT ) ? "" : "no ") + "se ha transformado" );
+        System.out.println( "La estacion "+( ( result==CombatResult.STATIONWINSANDCONVERTS ) ? "" : "no ") + "se ha transformado" );
         System.out.println(game.toString());
     
     }
