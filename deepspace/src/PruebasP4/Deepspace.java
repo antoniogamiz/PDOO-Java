@@ -3,19 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package deepspace;
+package PruebasP4;
 
 /**
  *
  * @author antonio
  */
 public class Deepspace {
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
         System.out.println("Programa de pruebas para P4");
     }
-    
 }
