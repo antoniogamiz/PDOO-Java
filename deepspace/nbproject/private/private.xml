@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/NamesCapture.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/main/PlayUI.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/MainView.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/controller/ControllerText.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/View.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/Controller/Controller.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/main/PlayWithUI.java</file>
+        </group>
     </open-files>
 </project-private>
