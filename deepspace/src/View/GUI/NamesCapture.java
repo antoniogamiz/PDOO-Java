@@ -17,37 +17,26 @@ import java.awt.event.ActionListener;
  */
 public class NamesCapture extends javax.swing.JDialog {
 
-    private ArrayList<String> names;
+    private ArrayList<String> names = new ArrayList<String>();
     
     /**
      * Creates new form NamesCapture
      */
     public NamesCapture(java.awt.Frame parent) {
-        super(parent);
-        names = new ArrayList<String>();
+        super(parent, true);
         initComponents();
         
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e){ 
+                System.exit(0);
             }
         });   
-
-        startButton.addActionListener(new ActionListener() { 
-        public void actionPerformed(ActionEvent e) { 
-            names.add( player_name_1.getText() );
-            names.add( player_name_2.getText() );
-            dispose();
-        } 
-    });
+        
+     setLocationRelativeTo(null);
     }
-    
-    public ArrayList<String> getNames(){
-        this.setVisible(true);
-        return names;
-    }
-    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +59,11 @@ public class NamesCapture extends javax.swing.JDialog {
         jLabel2.setText("Jugador 2");
 
         startButton.setText("Empezar");
+        startButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startButtonActionPerformed(evt);
+            }
+        });
 
         player_name_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +111,20 @@ public class NamesCapture extends javax.swing.JDialog {
     private void player_name_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player_name_1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_player_name_1ActionPerformed
+
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+        // TODO add your handling code here:
+        names.clear();
+        names.add( player_name_1.getText() );
+        names.add( player_name_2.getText() );
+        dispose();
+
+    }//GEN-LAST:event_startButtonActionPerformed
+
+    public ArrayList<String> getNames(){
+        setVisible(true);
+        return names;
+    }
 
     /**
      * @param args the command line arguments

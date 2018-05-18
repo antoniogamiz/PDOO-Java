@@ -7,6 +7,7 @@ package deepspace;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author antonio
@@ -250,6 +251,8 @@ public class GameUniverse {
         }
     }
 
+    public WeaponToUI getTestWeapon(){ return new WeaponToUI( new Weapon("TestWeapon", WeaponType.LASER, 10) ); }
+    public LootToUI getTestLoot(){ return new LootToUI( new Loot(0,1,2,3,4,true,false) ); }
     @Override
     public String toString() {
         return "GameUniverse{" + "currentStationIndex=" + currentStationIndex + ", turns=" + turns + ", dice=" + dice + ", gameState=" + gameState + ", currentStation=" + currentStation + ", currentEnemy=" + currentEnemy + ", spaceStations=" + spaceStations + '}';

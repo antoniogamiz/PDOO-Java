@@ -10,6 +10,9 @@ import deepspace.CombatResult;
 import deepspace.GameState;
 import deepspace.GameUniverse;
 import deepspace.GameUniverseToUI;
+import deepspace.LootToUI;
+import deepspace.WeaponToUI;
+import deepspace.WeaponType;
 
 import View.View;
 import View.GUI.MainView;
@@ -30,12 +33,17 @@ public class Controller {
     }
     
     public void start(){
-        NamesCapture namesCaptureDialog = new NamesCapture((java.awt.Frame)view);
-        ArrayList<String> names = namesCaptureDialog.getNames();
+        model.init( ( (MainView) view).getNames() );
+        view.updateView();
         view.showView();
     }
     
     public void finish(int i){ 
         System.exit(i);
     }
+    
+    public WeaponToUI getTestWeapon(){ return model.getTestWeapon(); }
+    public LootToUI getTestLoot(){ return model.getTestLoot(); }
+
+
 }
