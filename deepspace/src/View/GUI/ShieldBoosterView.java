@@ -5,36 +5,35 @@
  */
 package View.GUI;
 
-import deepspace.WeaponToUI;
+import deepspace.ShieldToUI;
 import java.awt.Color;
 
 /**
  *
  * @author antonio
  */
-public class WeaponView extends javax.swing.JPanel {
-     
+public class ShieldBoosterView extends javax.swing.JPanel {
+
     private boolean selected = false;
     
     /**
-     * Creates new form WeaponView
+     * Creates new form ShieldBoosterView
      */
-    public WeaponView() {
+    public ShieldBoosterView() {
         initComponents();
-    }    
-    
-    void setWeaponToUI(WeaponToUI weapon){
-        typeField.setText(weapon.getType().toString());
-        powerField.setText(Float.toString(weapon.getPower()));
-        usesField.setText(Integer.toString(weapon.getUses()));
+    }
+
+    void setShieldToUI( ShieldToUI s ){
+        boostLabel.setText( Float.toString( s.getBoost() ) );
+        usesLabel.setText( Integer.toString( s.getUses() ) );
         setOpaque(selected);
         repaint();
     }
     
-    boolean isSelected () {
+    boolean getSelected(){
         return selected;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,12 +43,10 @@ public class WeaponView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        type = new javax.swing.JLabel();
-        power = new javax.swing.JLabel();
-        uses = new javax.swing.JLabel();
-        typeField = new javax.swing.JLabel();
-        powerField = new javax.swing.JLabel();
-        usesField = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        boostLabel = new javax.swing.JLabel();
+        usesLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -58,51 +55,41 @@ public class WeaponView extends javax.swing.JPanel {
             }
         });
 
-        type.setText("Tipo: ");
-        type.setToolTipText("");
+        jLabel1.setText("Boost: ");
 
-        power.setText("Potencia: ");
+        jLabel2.setText("Usos: ");
 
-        uses.setText("Usos: ");
+        boostLabel.setText("jLabel3");
 
-        typeField.setText("jLabel1");
-
-        powerField.setText("jLabel1");
-
-        usesField.setText("jLabel1");
+        usesLabel.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(type)
-                    .addComponent(power)
-                    .addComponent(uses))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(typeField)
-                    .addComponent(powerField)
-                    .addComponent(usesField))
-                .addGap(36, 36, 36))
+                    .addComponent(usesLabel)
+                    .addComponent(boostLabel))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(type)
-                    .addComponent(typeField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel1)
+                    .addComponent(boostLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(power)
-                    .addComponent(powerField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(uses)
-                    .addComponent(usesField)))
+                    .addComponent(jLabel2)
+                    .addComponent(usesLabel))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,18 +100,14 @@ public class WeaponView extends javax.swing.JPanel {
         if(selected) setBackground(Color.CYAN);
         else setBackground( new java.awt.Color(255, 255, 102) );
         repaint();
+
     }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel power;
-    private javax.swing.JLabel powerField;
-    private javax.swing.JLabel type;
-    private javax.swing.JLabel typeField;
-    private javax.swing.JLabel uses;
-    private javax.swing.JLabel usesField;
+    private javax.swing.JLabel boostLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel usesLabel;
     // End of variables declaration//GEN-END:variables
-
-
-    
 }

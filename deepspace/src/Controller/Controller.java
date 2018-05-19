@@ -12,6 +12,7 @@ import deepspace.GameUniverse;
 import deepspace.GameUniverseToUI;
 import deepspace.LootToUI;
 import deepspace.WeaponToUI;
+import deepspace.SpaceStationToUI;
 import deepspace.WeaponType;
 
 import View.View;
@@ -44,6 +45,6 @@ public class Controller {
     
     public WeaponToUI getTestWeapon(){ return model.getTestWeapon(); }
     public LootToUI getTestLoot(){ return model.getTestLoot(); }
-
-
+    public SpaceStationToUI getTestStation(){ return model.getTestStation(); }
+    public void mountWeapon(){ model.mountWeapon(0); }
 }
