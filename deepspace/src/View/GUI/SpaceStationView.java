@@ -256,14 +256,13 @@ public class SpaceStationView extends javax.swing.JPanel {
     private void EquipButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EquipButtonActionPerformed
         // TODO add your handling code here:
         ArrayList<Integer> selectedWeapon = getSelectedWeaponsInHangar();        
-        for( int i=0; i<selectedWeapon.size(); i++ ){
-            MainView.controller.mountWeaponFromHangar( selectedWeapon.get(i) - i );
+        for( int i=selectedWeapon.size()-1; i>=0; i-- ){
+            MainView.controller.mountWeaponFromHangar( selectedWeapon.get(i) );
         }
         
         ArrayList<Integer> selectedShield = getSelectedShieldsInHangar();
-        System.out.println(selectedShield.toString());
-        for( int i=0; i<selectedShield.size(); i++ ){
-            MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - i );
+        for( int i=selectedShield.size()-1; i>=0; i-- ){
+            MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - selectedWeapon.size());
         }
     }//GEN-LAST:event_EquipButtonActionPerformed
 
@@ -274,25 +273,27 @@ public class SpaceStationView extends javax.swing.JPanel {
 
     private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
         // TODO add your handling code here:
+        int aux;
         
         ArrayList<Integer> selected = getSelectedWeaponsInHangar();        
-        for( int i=0; i<selected.size(); i++ ){
-            MainView.controller.discardWeaponFromHangar( selected.get(i) - i );
+        for( int i=selected.size()-1; i>=0; i-- ){
+            MainView.controller.discardWeaponFromHangar( selected.get(i) );
         }
+        aux=selected.size();
         
         selected = getSelectedShieldsInHangar();
         for( int i=0; i<selected.size(); i++ ){
-            MainView.controller.discardShieldBoosterFromHangar( selected.get(i) - i );
+            MainView.controller.discardShieldBoosterFromHangar( selected.get(i) - aux );
         }
         
         selected = getSelectedWeapons();
-        for( int i=0; i<selected.size(); i++ ){
-            MainView.controller.discardWeapon( selected.get(i) - i );
+        for( int i=selected.size()-1; i>=0; i-- ){
+            MainView.controller.discardWeapon( selected.get(i) );
         }
         
         selected = getSelectedShields();
-        for( int i=0; i<selected.size(); i++ ){
-            MainView.controller.discardShieldBooster( selected.get(i) - i );
+        for( int i=selected.size()-1; i>=0; i-- ){
+            MainView.controller.discardShieldBooster( selected.get(i) );
         }
 
         
