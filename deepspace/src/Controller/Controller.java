@@ -67,6 +67,10 @@ public class Controller {
 
     public boolean nextTurn() {
         boolean result = model.nextTurn();
+        
+        if( !result )
+            view.showNextTurnError();
+        
         view.updateView();
         return result;
     }

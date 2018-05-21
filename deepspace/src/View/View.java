@@ -16,4 +16,5 @@ public interface View {
     public void setController(Controller c);
     public void updateView();
     public void showView();
+    public void showNextTurnError();
 }
