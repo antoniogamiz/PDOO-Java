@@ -141,12 +141,11 @@ public class MainView extends javax.swing.JFrame implements View {
     
     @Override
     public void updateView(){
-        
+        stationPanel.removeAll();
+        GameUniverseToUI modelToUI = MainView.controller.getUIversion();
         SpaceStationView spaceView = new SpaceStationView();
-        controller.mountWeapon();
-        spaceView.setSpaceStationToUI( controller.getTestStation() );
+        spaceView.setSpaceStationToUI(modelToUI.getCurrentStation());
         stationPanel.add( spaceView );
-            
         repaint();
         revalidate();
     }

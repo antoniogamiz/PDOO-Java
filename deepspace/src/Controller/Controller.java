@@ -42,9 +42,61 @@ public class Controller {
     public void finish(int i){ 
         System.exit(i);
     }
+    public GameUniverseToUI getUIversion() {
+        return model.getUIversion();
+    }
+
+    public GameState getState() {
+        return model.getState();
+    }
+
+    public CombatResult combat() {
+        CombatResult result = model.combat();
+        view.updateView();
+        return result;
+    }
+
+    public boolean haveAWinner() {
+        return model.haveAWinner();
+    }
+
+    public void discardHangar() {
+        model.discardHangar();
+        view.updateView();
+    }
+
+    public boolean nextTurn() {
+        boolean result = model.nextTurn();
+        view.updateView();
+        return result;
+    }
     
-    public WeaponToUI getTestWeapon(){ return model.getTestWeapon(); }
-    public LootToUI getTestLoot(){ return model.getTestLoot(); }
-    public SpaceStationToUI getTestStation(){ return model.getTestStation(); }
-    public void mountWeapon(){ model.mountWeapon(0); }
+    public void mountWeaponFromHangar(int option){ 
+        model.mountWeapon(option); 
+        view.updateView();
+    }
+    
+    public void mountShieldBoosterFromHangar(int option){ 
+        model.mountShieldBooster(option); 
+        view.updateView();
+    }
+    
+    public void discardShieldBoosterFromHangar(int option){ 
+        model.discardShieldBoosterInHangar(option); 
+        view.updateView();
+    }    
+    
+    public void discardWeaponFromHangar(int option){ 
+        model.discardWeaponInHangar(option);
+        view.updateView();
+    }
+    public void discardWeapon(int option){ 
+        model.discardWeapon(option); 
+        view.updateView();
+    }
+    public void discardShieldBooster(int option){ 
+        model.discardShieldBooster(option);
+        view.updateView();
+    }
+
 }

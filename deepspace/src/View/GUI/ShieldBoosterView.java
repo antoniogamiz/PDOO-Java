@@ -30,7 +30,7 @@ public class ShieldBoosterView extends javax.swing.JPanel {
         repaint();
     }
     
-    boolean getSelected(){
+    boolean isSelected(){
         return selected;
     }
     
