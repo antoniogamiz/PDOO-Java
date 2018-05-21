@@ -31,6 +31,10 @@ public class SpaceStationView extends javax.swing.JPanel {
 
     void setSpaceStationToUI(SpaceStationToUI s){
         
+        weaponsPanel.removeAll();
+        shieldsPanel.removeAll();
+        hangarPanel.removeAll();
+        
         stationName.setText( s.getName() );
         ammoPowerLabel.setText( Float.toString( s.getAmmoPower() ) );
         shieldPowerLabel.setText( Float.toString( s.getShieldPower() ) );
@@ -70,7 +74,7 @@ public class SpaceStationView extends javax.swing.JPanel {
         for( WeaponToUI weapon : weapons ){
             wView = new WeaponView();
             wView.setWeaponToUI(weapon);
-            weaponsPanel.add( wView ); 
+            hangarPanel.add( wView ); 
         }
 
         
@@ -109,6 +113,8 @@ public class SpaceStationView extends javax.swing.JPanel {
         hangarPanel = new javax.swing.JPanel();
         stationName = new javax.swing.JLabel();
         EquipButton = new javax.swing.JButton();
+        discardButton = new javax.swing.JButton();
+        discardHangarButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -143,6 +149,20 @@ public class SpaceStationView extends javax.swing.JPanel {
             }
         });
 
+        discardButton.setText("Descartar");
+        discardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardButtonActionPerformed(evt);
+            }
+        });
+
+        discardHangarButton.setText("Descartar Hangar completo");
+        discardHangarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardHangarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,6 +177,10 @@ public class SpaceStationView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(EquipButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(discardButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(discardHangarButton)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -209,7 +233,10 @@ public class SpaceStationView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hangarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EquipButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EquipButton)
+                    .addComponent(discardButton)
+                    .addComponent(discardHangarButton))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -225,8 +252,38 @@ public class SpaceStationView extends javax.swing.JPanel {
         for( int i=0; i<selectedShield.size(); i++ ){
             MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - i );
         }
-
     }//GEN-LAST:event_EquipButtonActionPerformed
+
+    private void discardHangarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardHangarButtonActionPerformed
+        // TODO add your handling code here:
+        MainView.controller.discardHangar();
+    }//GEN-LAST:event_discardHangarButtonActionPerformed
+
+    private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<Integer> selected = getSelectedWeaponsInHangar();        
+        for( int i=0; i<selected.size(); i++ ){
+            MainView.controller.discardWeaponFromHangar( selected.get(i) - i );
+        }
+        
+        selected = getSelectedShieldsInHangar();
+        for( int i=0; i<selected.size(); i++ ){
+            MainView.controller.discardShieldBoosterFromHangar( selected.get(i) - i );
+        }
+        
+        selected = getSelectedWeapons();
+        for( int i=0; i<selected.size(); i++ ){
+            MainView.controller.discardWeapon( selected.get(i) - i );
+        }
+        
+        selected = getSelectedShields();
+        for( int i=0; i<selected.size(); i++ ){
+            MainView.controller.discardShieldBooster( selected.get(i) - i );
+        }
+
+        
+    }//GEN-LAST:event_discardButtonActionPerformed
 
 
     ArrayList<Integer> getSelectedWeapons () {
@@ -287,6 +344,8 @@ public class SpaceStationView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EquipButton;
     private javax.swing.JLabel ammoPowerLabel;
+    private javax.swing.JButton discardButton;
+    private javax.swing.JButton discardHangarButton;
     private javax.swing.JLabel fuelUnitsLabel;
     private javax.swing.JPanel hangarPanel;
     private javax.swing.JLabel jLabel1;

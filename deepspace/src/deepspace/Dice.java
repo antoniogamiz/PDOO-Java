@@ -46,7 +46,7 @@ public class Dice {
     
     GameCharacter firstShot(){ return ( generator.nextFloat() < FIRSTSHOTPROB ) ? GameCharacter.SPACESTATION : GameCharacter.ENEMYSTARSHIP; }
     
-    boolean spaceStationMoves(float speed){ return ( generator.nextFloat() < speed ) ? true : false; }
+    boolean spaceStationMoves(float speed){ return generator.nextFloat() < speed; }
     
-    boolean extraEfficiency(){ /*return (generator.nextFloat() >= EXTRAEFFICIENCYPROB) ? true:false;*/ return true; }
+    boolean extraEfficiency(){ return generator.nextFloat() >= EXTRAEFFICIENCYPROB; }
 }

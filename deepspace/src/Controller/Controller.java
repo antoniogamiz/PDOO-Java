@@ -71,7 +71,7 @@ public class Controller {
         return result;
     }
     
-    public void mountWeaponFromHangar(int option){ 
+    public void mountWeaponFromHangar(int option){
         model.mountWeapon(option); 
         view.updateView();
     }
@@ -90,10 +90,12 @@ public class Controller {
         model.discardWeaponInHangar(option);
         view.updateView();
     }
-    public void discardWeapon(int option){ 
+    
+    public void discardWeapon(int option){
         model.discardWeapon(option); 
         view.updateView();
     }
+    
     public void discardShieldBooster(int option){ 
         model.discardShieldBooster(option);
         view.updateView();

@@ -34,6 +34,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Component id="EquipButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="discardButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="discardHangarButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -101,7 +105,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="hangarPanel" min="-2" pref="133" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="EquipButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="EquipButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="discardButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="discardHangarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="13" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -204,6 +212,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EquipButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="discardButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descartar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="discardHangarButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descartar Hangar completo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardHangarButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

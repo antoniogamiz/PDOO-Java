@@ -233,7 +233,6 @@ public class GameUniverse {
                 
                 currentStation=spaceStations.get(currentStationIndex);
                 currentStation.cleanUpMountedItems();
-            
                 CardDealer dealer = CardDealer.getInstance();
                 currentEnemy = dealer.nextEnemy();           
                 gameState.next(turns, spaceStations.size());
@@ -250,10 +249,6 @@ public class GameUniverse {
             return false;
         }
     }
-
-    public WeaponToUI getTestWeapon(){ return new WeaponToUI( new Weapon("TestWeapon", WeaponType.LASER, 10) ); }
-    public LootToUI getTestLoot(){ return new LootToUI( new Loot(0,1,2,3,4,true,false) ); }
-    public SpaceStationToUI getTestStation(){ return new SpaceStationToUI( currentStation ); }
     
     @Override
     public String toString() {
