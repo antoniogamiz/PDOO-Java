@@ -69,21 +69,21 @@ public class SpaceStationView extends javax.swing.JPanel {
         if( hangar != null ){
             weapons = hangar.getWeapons();
             shields = hangar.getShieldBoosters();
-        }
-
-        for( WeaponToUI weapon : weapons ){
-            wView = new WeaponView();
-            wView.setWeaponToUI(weapon);
-            hangarPanel.add( wView ); 
-        }
-
         
-        for( ShieldToUI shield : shields ){
-            sView = new ShieldBoosterView();
-            sView.setShieldToUI(shield);
-            hangarPanel.add( sView ); 
-        }
+            for( WeaponToUI weapon : weapons ){
+                wView = new WeaponView();
+                wView.setWeaponToUI(weapon);
+                hangarPanel.add( wView ); 
+            }
 
+
+            for( ShieldToUI shield : shields ){
+                sView = new ShieldBoosterView();
+                sView.setShieldToUI(shield);
+                hangarPanel.add( sView ); 
+            }
+
+        }
         
         repaint();
         revalidate();

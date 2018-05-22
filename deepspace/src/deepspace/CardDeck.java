@@ -48,7 +48,7 @@ class CardDeck<T> {
     }
     
     private void shuffle() {
-        //Collections.shuffle(cards);
+        Collections.shuffle(cards);
     }
     
     boolean justShuffled() {

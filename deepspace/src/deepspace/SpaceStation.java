@@ -45,27 +45,51 @@ public class SpaceStation implements SpaceFighter{
     
     SpaceStation(SpaceStation sp)
     {
+        weapons = new ArrayList<>();
+        shieldBoosters = new ArrayList<>();
+        
         name=sp.name;
+        nMedals=sp.nMedals;
+        
         ammoPower=sp.ammoPower;
         fuelUnits=sp.fuelUnits;
         shieldPower=sp.shieldPower;
-        if( sp.weapons!=null ) for(int i=0; i<sp.weapons.size(); i++) weapons.add(sp.weapons.get(i));
-        if( sp.shieldBoosters!=null ) for(int i=0; i<sp.shieldBoosters.size(); i++) shieldBoosters.add(sp.shieldBoosters.get(i));
-        nMedals=sp.nMedals;
+
+        sp.getWeapons().forEach((w) -> {
+            weapons.add(w);
+        });
+        
+        sp.getShieldBoosters().forEach((s) -> {
+            shieldBoosters.add(s);
+        });
+        
         hangar=sp.hangar;
         pendingDamage=sp.pendingDamage; 
     }
     
     public void cleanUpMountedItems()
     {
-        for(Weapon x: weapons)
-        {
-            if(x.getUses() <= 0) weapons.remove(x);
+        for(Weapon w : weapons){
+            if( w.getUses() <=0 ){
+                if(pendingDamage!=null){
+                    pendingDamage.discardWeapon(w);
+                    cleanPendingDamage();
+                }
+                weapons.remove(w);
+            }
         }
-        for(ShieldBooster x: shieldBoosters)
-        {
-            if(x.getUses() <= 0) shieldBoosters.remove(x);
+
+        for(ShieldBooster s : shieldBoosters){
+            if( s.getUses() <=0 ){
+                if(pendingDamage!=null){
+                    pendingDamage.discardShieldBooster();
+                    cleanPendingDamage();
+                }
+                shieldBoosters.remove(s);
+            }
         }
+
+        
     }
     
     public void discardHangar(){ hangar=null; }

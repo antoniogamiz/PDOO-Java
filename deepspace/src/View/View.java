@@ -17,4 +17,9 @@ public interface View {
     public void updateView();
     public void showView();
     public void showNextTurnError();
+    public void showEnemyWinsMessage();
+    public void showStationEscapesMessage();
+    public void showYouWinMessage();
+    public void showYouWinAndConvertMessage();
+    public void showVictoryMessage();
 }

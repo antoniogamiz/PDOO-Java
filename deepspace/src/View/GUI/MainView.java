@@ -53,6 +53,7 @@ public class MainView extends javax.swing.JFrame implements View {
         enemyPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         nextTurnButton = new javax.swing.JButton();
+        combatButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +71,13 @@ public class MainView extends javax.swing.JFrame implements View {
             }
         });
 
+        combatButton.setText("Combatir");
+        combatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combatButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,14 +86,20 @@ public class MainView extends javax.swing.JFrame implements View {
                 .addComponent(stationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enemyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nextTurnButton)
-                            .addComponent(jButton1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(enemyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nextTurnButton)
+                                    .addComponent(jButton1))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(combatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,6 +111,8 @@ public class MainView extends javax.swing.JFrame implements View {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(enemyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(combatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nextTurnButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -114,8 +130,15 @@ public class MainView extends javax.swing.JFrame implements View {
 
     private void nextTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTurnButtonActionPerformed
         // TODO add your handling code here:
-        MainView.controller.nextTurn();
+        if( controller.nextTurn() )
+            combatButton.setEnabled(true);
     }//GEN-LAST:event_nextTurnButtonActionPerformed
+
+    private void combatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatButtonActionPerformed
+        // TODO add your handling code here:
+        if( controller.combat() != CombatResult.NOCOMBAT )
+            combatButton.setEnabled(false);
+    }//GEN-LAST:event_combatButtonActionPerformed
 
     
     //Metodos heredados de la interfaz
@@ -126,13 +149,15 @@ public class MainView extends javax.swing.JFrame implements View {
     
     @Override
     public void updateView(){
+        
         stationPanel.removeAll();
         
-        GameUniverseToUI modelToUI = MainView.controller.getUIversion();
+        GameUniverseToUI modelToUI = controller.getUIversion();
         SpaceStationView spaceView = new SpaceStationView();
         spaceView.setSpaceStationToUI(modelToUI.getCurrentStation());
         stationPanel.add( spaceView );
         
+        enemyPanel.removeAll();
         EnemyView enemyView = new EnemyView();
         enemyView.setEnemyToUI(modelToUI.getCurrentEnemy());
         enemyPanel.add( enemyView );
@@ -157,6 +182,52 @@ public class MainView extends javax.swing.JFrame implements View {
                 JOptionPane.INFORMATION_MESSAGE
         );
     }
+
+    public void showEnemyWinsMessage(){
+        JOptionPane.showMessageDialog(
+                this,
+                "Has perdido el combate!\nCumple tu castigo.",
+                "Has perdido el combate!",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    public void showStationEscapesMessage(){
+        JOptionPane.showMessageDialog(
+                this,
+                "Has escapado del combate!\nEres una gallinan espacial!.",
+                "GALLINA!",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+    
+    public void showYouWinMessage(){
+        JOptionPane.showMessageDialog(
+                this,
+                "Has ganado el combate!\nDisfruta de tu botín",
+                "Has ganado el combate!",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+    
+    public void showYouWinAndConvertMessage(){
+        JOptionPane.showMessageDialog(
+                this,
+                "Has ganado el combate!\nDisfruta de tu botín.\n Y además te has convertido!",
+                "Has ganado el combate!",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    public void showVictoryMessage(){
+        JOptionPane.showMessageDialog(
+                this,
+                "Has ganado el juego!\nEnhorabuena!.",
+                "¡VICTORIA!",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -193,6 +264,7 @@ public class MainView extends javax.swing.JFrame implements View {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton combatButton;
     private javax.swing.JPanel enemyPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton nextTurnButton;

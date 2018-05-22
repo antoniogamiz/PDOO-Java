@@ -3,13 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/Loot.java</file>
             <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/MainView.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/controller/ControllerText.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/SpaceStation.java</file>
             <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/GameUniverse.java</file>
-            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/WeaponView.java</file>
-            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/WeaponsView.java</file>
             <file>file:/home/antonio/PDOO-Java/deepspace/src/Controller/Controller.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/View.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/UI/TextUI.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/CombatResult.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/CardDeck.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/SpaceStationView.java</file>
             <file>file:/home/antonio/PDOO-Java/deepspace/src/View/GUI/LootView.java</file>
+            <file>file:/home/antonio/PDOO-Java/deepspace/src/deepspace/CardDealer.java</file>
         </group>
     </open-files>
 </project-private>
