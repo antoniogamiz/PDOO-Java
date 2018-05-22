@@ -16,6 +16,7 @@ public class SpaceCity extends SpaceStation{
     private SpaceStation base;
     private ArrayList<SpaceStation> collaborators = new ArrayList();
     
+    
     SpaceCity(SpaceStation base, ArrayList<SpaceStation> rest)
     {
         super(base);
@@ -24,7 +25,8 @@ public class SpaceCity extends SpaceStation{
     }
     
     public ArrayList<SpaceStation> getCollaborators(){ return collaborators; }
-
+    
+    @Override
     public float fire()
     {
         float fire = base.fire();
@@ -32,6 +34,7 @@ public class SpaceCity extends SpaceStation{
         return fire;       
     }
     
+    @Override
     public float protection()
     {
         float protect = base.protection();
@@ -39,8 +42,14 @@ public class SpaceCity extends SpaceStation{
         return protect;
     }
 
+    @Override
     public Transformation setLoot(Loot loot){
         super.setLoot(loot);
         return Transformation.NOTRANSFORM;
-} 
+    }
+    
+    @Override
+    public SpaceCityToUI getUIversion(){
+        return new SpaceCityToUI(this);
+    }
 }

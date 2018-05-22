@@ -115,16 +115,19 @@ public class GameUniverse {
     
     private void makeStationEfficient() 
     {
-        currentStation=(dice.extraEfficiency()) ? new BetaPowerEfficientSpaceStation(currentStation): new PowerEfficientSpaceStation(currentStation);    
+        currentStation=(dice.extraEfficiency()) ? new BetaPowerEfficientSpaceStation(currentStation): new PowerEfficientSpaceStation(currentStation);
+        spaceStations.set(currentStationIndex, currentStation);
     }
     
     private void createSpaceCity()
     {
-        if(!haveSpaceCity)
-        {
-            currentStation = new SpaceCity(currentStation, spaceStations);
+        if(!haveSpaceCity){
+            ArrayList<SpaceStation> aux = new ArrayList(spaceStations);
+            aux.remove(currentStationIndex);
+            currentStation = new SpaceCity(currentStation, aux);
+            spaceStations.set(currentStationIndex, currentStation);
             haveSpaceCity = true;
-        }
+        }    
     }
     
     public void discardHangar()

@@ -15,6 +15,7 @@ public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
     
     public BetaPowerEfficientSpaceStation(SpaceStation station) { super(station); }
     
+    @Override
     public float fire() {
         if (dice.extraEfficiency()) {
            return EXTRAEFFICIENCY*super.fire();
@@ -23,6 +24,11 @@ public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
         }
     }
 
+    @Override
+    public BetaPowerEfficientSpaceStationToUI getUIversion(){
+        return new BetaPowerEfficientSpaceStationToUI(this);
+    }
+    
     @Override
     public String toString(){ return "BETAPOWEREFFICIENT "+super.toString(); }
 
