@@ -127,7 +127,7 @@ class CardDealer {
        shieldBoosters.add(new ShieldBooster("Escudo normal",4.0f,2));
     }
     private void createHangars() {
-        hangars.add(new Hangar(4));
+        /*hangars.add(new Hangar(4));
         hangars.add(new Hangar(4));
         hangars.add(new Hangar(3));
         hangars.add(new Hangar(3));
@@ -135,7 +135,9 @@ class CardDealer {
         hangars.add(new Hangar(2));
         hangars.add(new Hangar(2));
         hangars.add(new Hangar(1));
-        hangars.add(new Hangar(1));
+        hangars.add(new Hangar(1));*/
+        hangars.add(new Hangar(20));
+        hangars.add(new Hangar(20));
     }
     private void createEnemies() {
         Loot regularLoot0=new Loot(1,2,1,1,1, true, false);

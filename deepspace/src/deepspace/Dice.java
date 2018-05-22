@@ -32,15 +32,15 @@ public class Dice {
     int initWithNHangars(){ return ( generator.nextFloat() < NHANGARSPROB ) ? 0 : 1;}
     
     int initWithNWeapons(){
-        float p = generator.nextFloat();
+    /*    float p = generator.nextFloat();
         
         if(p < NWEAPONSPROB)
             return 1;
         else 
             return ( NWEAPONSPROB <= p && p < NWEAPONSPROB*2 ) ? 2 : 3;
-    }
+    */return 10;}
     
-    int initWithNShields(){ return ( generator.nextFloat() < NSHIELDSPROB ) ? 0 : 1; }
+    int initWithNShields(){ /*return ( generator.nextFloat() < NSHIELDSPROB ) ? 0 : 1;*/ return 5; }
     
     int whoStarts(int nPlayers){ return generator.nextInt(nPlayers); }
     
