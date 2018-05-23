@@ -238,7 +238,7 @@ public class SpaceStationView extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EquipButton)
                     .addComponent(discardButton)
@@ -258,6 +258,7 @@ public class SpaceStationView extends javax.swing.JPanel {
         for( int i=selectedShield.size()-1; i>=0; i-- ){
             MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - selectedWeapon.size());
         }
+        System.out.println(MainView.controller.getState());
     }//GEN-LAST:event_EquipButtonActionPerformed
 
     private void discardHangarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardHangarButtonActionPerformed

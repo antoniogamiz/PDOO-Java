@@ -6,6 +6,7 @@
 package deepspace;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -26,19 +27,20 @@ public class SpecificDamage extends Damage {
     @Override
     public SpecificDamage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s)
     {
-        int index;        
-        ArrayList<WeaponType> new_weapons = new ArrayList<>();            
-        for(WeaponType x: weapons)
-        {
-            index=arrayContainsType(w, x);
-            if ( index != -1 )
-            {
-                new_weapons.add(x);
-                w.remove(index);
-            }
-        }
-
-        return new SpecificDamage(new_weapons, adjustShieldBoosters(s));
+        ArrayList<WeaponType> aux = new ArrayList<WeaponType>();
+        ArrayList<WeaponType> res = new ArrayList<WeaponType>();
+          
+        for (Weapon elemento:w)
+            aux.add(elemento.getType());
+               
+        WeaponType wtypes [] = WeaponType.values();
+        for(int i = 0; i < wtypes.length; i+=1) {
+            int min = Math.min(Collections.frequency(aux, wtypes[i]),Collections.frequency(weapons, wtypes[i]));
+            for(int j = 0; j < min; j+=1)
+                res.add(wtypes[i]);
+        } 
+        
+        return new SpecificDamage(res,adjustShieldBoosters(s));
     }
 
     private int arrayContainsType(ArrayList<Weapon> w, WeaponType t)

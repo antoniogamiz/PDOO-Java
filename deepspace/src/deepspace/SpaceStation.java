@@ -69,25 +69,6 @@ public class SpaceStation implements SpaceFighter{
     
     public void cleanUpMountedItems()
     {
-        /*for(Weapon w : weapons){
-            if( w.getUses() <=0 ){
-                if(pendingDamage!=null){
-                    pendingDamage.discardWeapon(w);
-                    cleanPendingDamage();
-                }
-                weapons.remove(w);
-            }
-        }
-
-        for(ShieldBooster s : shieldBoosters){
-            if( s.getUses() <=0 ){
-                if(pendingDamage!=null){
-                    pendingDamage.discardShieldBooster();
-                    cleanPendingDamage();
-                }
-                shieldBoosters.remove(s);
-            }
-        }*/
       
         for( int i=weapons.size()-1; i>=0; i-- ){
             if( weapons.get(i).getUses()==0 )
@@ -98,9 +79,6 @@ public class SpaceStation implements SpaceFighter{
             if( shieldBoosters.get(i).getUses()==0 )
                 discardShieldBooster(i);
         }
-
-
-        
     }
     
     public void discardHangar(){ hangar=null; }
