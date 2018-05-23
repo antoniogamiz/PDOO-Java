@@ -2,26 +2,21 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ * @author antonio
+*/
+
+
 package Controller;
-import java.util.ArrayList;
 
 import deepspace.CombatResult;
 import deepspace.GameState;
 import deepspace.GameUniverse;
 import deepspace.GameUniverseToUI;
-import deepspace.LootToUI;
-import deepspace.WeaponToUI;
-import deepspace.SpaceStationToUI;
-import deepspace.WeaponType;
+
 
 import View.View;
 import View.GUI.MainView;
-import View.GUI.NamesCapture;
-/**
- *
- * @author antonio
- */
+
 public class Controller {
     
     private GameUniverse model;
@@ -105,19 +100,6 @@ public class Controller {
         model.mountShieldBooster(option); 
         view.updateView();
     }
-
-    //true para weapon, false para shieldBooster
-    public void mountFromHangar(int option, boolean weapon_shield){
-        if( getState()==GameState.INIT || getState()==GameState.AFTERCOMBAT ){
-            if(weapon_shield)
-                model.mountWeapon(option);
-            else
-                model.mountShieldBooster(option);
-            view.updateView();
-        } else
-            view.showOnlyCombatMessage();
-    }
-    
     
     public void discardShieldBoosterFromHangar(int option){ 
         model.discardShieldBoosterInHangar(option); 

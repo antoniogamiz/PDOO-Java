@@ -6,7 +6,6 @@
 package View;
 
 import Controller.Controller;
-import java.util.ArrayList;
 
 /**
  *
@@ -22,5 +21,4 @@ public interface View {
     public void showYouWinMessage();
     public void showYouWinAndConvertMessage();
     public void showVictoryMessage();
-    public void showOnlyCombatMessage();
 }

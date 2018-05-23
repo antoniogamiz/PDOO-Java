@@ -26,13 +26,9 @@ public class HangarView extends javax.swing.JPanel {
     }
 
     void setHangarToUI(HangarToUI h){
-        
-        String hangarTitle = (h != null) ? "Hangar con "+ Integer.toString( h.getMaxElements() ) + " lugares": "No dispone de hangar";
-        setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), 
-        hangarTitle));
-        
-        ArrayList<WeaponToUI> weapons = new ArrayList<>();
-        ArrayList<ShieldToUI> shields = new ArrayList<>();
+                
+        ArrayList<WeaponToUI> weapons;
+        ArrayList<ShieldToUI> shields;
         
         if( h != null ){
             weapons = h.getWeapons();
@@ -53,7 +49,7 @@ public class HangarView extends javax.swing.JPanel {
             }
 
         }
-
+               
         revalidate();
         repaint();
     }
@@ -97,6 +93,8 @@ public class HangarView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setName(""); // NOI18N
     }// </editor-fold>//GEN-END:initComponents
 
 

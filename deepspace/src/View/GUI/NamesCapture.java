@@ -5,11 +5,8 @@
  */
 package View.GUI;
 
-import static View.GUI.MainView.controller;
 import java.util.ArrayList;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *
@@ -21,6 +18,7 @@ public class NamesCapture extends javax.swing.JDialog {
     
     /**
      * Creates new form NamesCapture
+     * @param parent
      */
     public NamesCapture(java.awt.Frame parent) {
         super(parent, true);

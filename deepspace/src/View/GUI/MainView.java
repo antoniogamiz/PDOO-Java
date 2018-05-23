@@ -6,9 +6,12 @@
 package View.GUI;
 
 import Controller.Controller;
+
 import View.View;
 
-import deepspace.*;
+import deepspace.CombatResult;
+import deepspace.GameUniverseToUI;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -174,6 +177,7 @@ public class MainView extends javax.swing.JFrame implements View {
         return namesCaptureDialog.getNames();
     }
     
+    @Override
     public void showNextTurnError(){
         JOptionPane.showMessageDialog(
                 this,
@@ -183,6 +187,7 @@ public class MainView extends javax.swing.JFrame implements View {
         );
     }
 
+    @Override
     public void showEnemyWinsMessage(){
         JOptionPane.showMessageDialog(
                 this,
@@ -192,6 +197,7 @@ public class MainView extends javax.swing.JFrame implements View {
         );
     }
 
+    @Override
     public void showStationEscapesMessage(){
         JOptionPane.showMessageDialog(
                 this,
@@ -201,6 +207,7 @@ public class MainView extends javax.swing.JFrame implements View {
         );
     }
     
+    @Override
     public void showYouWinMessage(){
         JOptionPane.showMessageDialog(
                 this,
@@ -210,6 +217,7 @@ public class MainView extends javax.swing.JFrame implements View {
         );
     }
     
+    @Override
     public void showYouWinAndConvertMessage(){
         JOptionPane.showMessageDialog(
                 this,
@@ -219,6 +227,7 @@ public class MainView extends javax.swing.JFrame implements View {
         );
     }
 
+    @Override
     public void showVictoryMessage(){
         JOptionPane.showMessageDialog(
                 this,
@@ -226,51 +235,6 @@ public class MainView extends javax.swing.JFrame implements View {
                 "¡VICTORIA!",
                 JOptionPane.INFORMATION_MESSAGE
         );
-    }
-
-    public void showOnlyCombatMessage(){
-        JOptionPane.showMessageDialog(
-                this,
-                "Estás en un punto de no retorno!\nTú única opción es combatir!.",
-                "¡PUNTO DE NO RETORNO!",
-                JOptionPane.INFORMATION_MESSAGE
-        );
-    }
-
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainView().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
