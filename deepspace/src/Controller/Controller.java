@@ -95,7 +95,7 @@ public class Controller {
         view.updateView();
         return result;
     }
-    
+
     public void mountWeaponFromHangar(int option){
         model.mountWeapon(option); 
         view.updateView();
