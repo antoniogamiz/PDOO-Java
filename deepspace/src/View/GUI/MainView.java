@@ -227,6 +227,16 @@ public class MainView extends javax.swing.JFrame implements View {
                 JOptionPane.INFORMATION_MESSAGE
         );
     }
+
+    public void showOnlyCombatMessage(){
+        JOptionPane.showMessageDialog(
+                this,
+                "Estás en un punto de no retorno!\nTú única opción es combatir!.",
+                "¡PUNTO DE NO RETORNO!",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
     
     /**
      * @param args the command line arguments

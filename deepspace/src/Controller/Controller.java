@@ -105,6 +105,19 @@ public class Controller {
         model.mountShieldBooster(option); 
         view.updateView();
     }
+
+    //true para weapon, false para shieldBooster
+    public void mountFromHangar(int option, boolean weapon_shield){
+        if( getState()==GameState.INIT || getState()==GameState.AFTERCOMBAT ){
+            if(weapon_shield)
+                model.mountWeapon(option);
+            else
+                model.mountShieldBooster(option);
+            view.updateView();
+        } else
+            view.showOnlyCombatMessage();
+    }
+    
     
     public void discardShieldBoosterFromHangar(int option){ 
         model.discardShieldBoosterInHangar(option); 
