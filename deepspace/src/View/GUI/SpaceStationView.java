@@ -277,7 +277,7 @@ public class SpaceStationView extends javax.swing.JPanel {
         aux=selected.size();
         
         selected = currentHangarView.getSelectedShields();
-        for( int i=0; i<selected.size(); i++ ){
+        for( int i=selected.size()-1; i>=0; i-- ){
             MainView.controller.discardShieldBoosterFromHangar( selected.get(i) - aux );
         }
         
