@@ -254,9 +254,11 @@ public class SpaceStationView extends javax.swing.JPanel {
             MainView.controller.mountWeaponFromHangar( selectedWeapon.get(i));
         }
         
+        int aux = (currentHangarView.getHangar()==null) ? 0:currentHangarView.getHangar().getWeapons().size();
+        
         ArrayList<Integer> selectedShield = currentHangarView.getSelectedShields();
         for( int i=selectedShield.size()-1; i>=0; i-- ){
-            MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - selectedWeapon.size());
+            MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - aux);
         }
         System.out.println(MainView.controller.getState());
     }//GEN-LAST:event_EquipButtonActionPerformed
