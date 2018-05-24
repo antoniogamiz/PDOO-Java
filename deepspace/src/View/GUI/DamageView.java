@@ -23,6 +23,8 @@ public class DamageView extends javax.swing.JPanel {
     void setDamageToUI(DamageToUI damage){
         shieldsLabel.setText( Integer.toString( damage.getNShields() ) );
         weaponsLabel.setText( damage.getWeaponInfo() );
+        
+        repaint();
     }
 
     /**

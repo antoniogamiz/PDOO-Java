@@ -258,7 +258,6 @@ public class SpaceStationView extends javax.swing.JPanel {
         for( int i=selectedShield.size()-1; i>=0; i-- ){
             MainView.controller.mountShieldBoosterFromHangar( selectedShield.get(i) - selectedWeapon.size());
         }
-        System.out.println(MainView.controller.getState());
     }//GEN-LAST:event_EquipButtonActionPerformed
 
     private void discardHangarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardHangarButtonActionPerformed
@@ -290,8 +289,6 @@ public class SpaceStationView extends javax.swing.JPanel {
         for( int i=selected.size()-1; i>=0; i-- ){
             MainView.controller.discardShieldBooster( selected.get(i) );
         }
-
-        
     }//GEN-LAST:event_discardButtonActionPerformed
 
 

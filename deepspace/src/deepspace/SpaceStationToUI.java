@@ -59,9 +59,7 @@ public class SpaceStationToUI {
         } else {
           pendingDamage = null;
         }
-        
-        System.out.println( station.toString() );
-            
+                    
     }
 
     public String getName() {
