@@ -18,6 +18,7 @@ import deepspace.ShieldToUI;
  */
 public class HangarView extends javax.swing.JPanel {
 
+    HangarToUI hangar;
     /**
      * Creates new form HangarView
      */
@@ -27,6 +28,8 @@ public class HangarView extends javax.swing.JPanel {
 
     void setHangarToUI(HangarToUI h){
                 
+        hangar=h;
+        
         ArrayList<WeaponToUI> weapons;
         ArrayList<ShieldToUI> shields;
         
@@ -53,6 +56,8 @@ public class HangarView extends javax.swing.JPanel {
         revalidate();
         repaint();
     }
+    
+    public HangarToUI getHangar(){ return hangar; }
     
     ArrayList<Integer> getSelectedWeapons(){
         ArrayList<Integer> selectedWeapons = new ArrayList();
