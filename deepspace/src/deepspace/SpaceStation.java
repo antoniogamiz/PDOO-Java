@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package deepspace;
-
-import java.util.ArrayList;
-
 /**
  *
  * @author antonio
  */
+
+package deepspace;
+
+import java.util.ArrayList;
+
 public class SpaceStation implements SpaceFighter{
  
     private static final int MAXFUEL = 100; 
@@ -30,8 +26,7 @@ public class SpaceStation implements SpaceFighter{
     private void assignFuelValue(float f){ if(f<MAXFUEL) fuelUnits = f; }
     private void cleanPendingDamage(){ if(pendingDamage != null && pendingDamage.hasNoEffect()) pendingDamage=null; }
 
-    SpaceStation(String n, SuppliesPackage supplies)
-    {
+    SpaceStation(String n, SuppliesPackage supplies){
         name = n;
         ammoPower = supplies.getAmmoPower();
         fuelUnits = supplies.getFuelUnits();
@@ -43,8 +38,7 @@ public class SpaceStation implements SpaceFighter{
         pendingDamage = null;
     }
     
-    SpaceStation(SpaceStation sp)
-    {
+    SpaceStation(SpaceStation sp){
         weapons = new ArrayList<>();
         shieldBoosters = new ArrayList<>();
         
@@ -67,8 +61,7 @@ public class SpaceStation implements SpaceFighter{
         pendingDamage=sp.pendingDamage; 
     }
     
-    public void cleanUpMountedItems()
-    {
+    public void cleanUpMountedItems(){
       
         for( int i=weapons.size()-1; i>=0; i-- ){
             if( weapons.get(i).getUses()==0 )
@@ -83,15 +76,12 @@ public class SpaceStation implements SpaceFighter{
     
     public void discardHangar(){ hangar=null; }
 
-    public void discardShieldBooster(int i)
-    {
-        int size=shieldBoosters.size();
+    public void discardShieldBooster(int i){
+        int size= shieldBoosters.size();
         
-        if( i>=0 && i<size )
-        {
+        if( i>=0 && i<size ){
             shieldBoosters.remove(i);
-            if( pendingDamage!=null )
-            {
+            if( pendingDamage!=null ){
                 pendingDamage.discardShieldBooster();
                 cleanPendingDamage();
             }
@@ -101,15 +91,12 @@ public class SpaceStation implements SpaceFighter{
 
     public void discardShieldBoosterInHangar(int i){ if(hangar!=null) hangar.removeShieldBooster(i); }
     
-    public void discardWeapon (int i)
-    {
+    public void discardWeapon (int i){
         int size=weapons.size();
         
-        if( i>=0 && i<size )
-        {
+        if( i>=0 && i<size ){
             Weapon w = weapons.remove(i);
-            if( pendingDamage!=null )
-            {
+            if( pendingDamage!=null ){
                 pendingDamage.discardWeapon(w);
                 cleanPendingDamage();
             }
@@ -119,8 +106,7 @@ public class SpaceStation implements SpaceFighter{
     public void discardWeaponInHangar(int i){ if(hangar!=null) hangar.removeWeapon(i); }
     
     @Override
-    public float fire()
-    {
+    public float fire(){
         float factor= 1.0f;
         
         if(weapons!=null)
@@ -171,8 +157,7 @@ public class SpaceStation implements SpaceFighter{
     public void move(){ fuelUnits -= getSpeed()*fuelUnits; }
     
     @Override
-    public float protection()
-    {
+    public float protection(){
         float factor= 1.0f;
         
         if(shieldBoosters!=null)
@@ -191,19 +176,16 @@ public class SpaceStation implements SpaceFighter{
     }
     
     @Override
-    public ShotResult receiveShot(float shot)
-    {
+    public ShotResult receiveShot(float shot){
         float myProtection = protection();
         
-        if( myProtection >= shot )
-        {
+        if( myProtection >= shot ){
             shieldPower-=SHIELDLOSSPERUNITSHOT*shot;
             shieldPower=Math.max(0.0f, shieldPower);
             
             return ShotResult.RESIST;
         }
-        else
-        {
+        else{
             shieldPower=0.0f;
             return ShotResult.DONOTRESIST;
         }
@@ -224,8 +206,7 @@ public class SpaceStation implements SpaceFighter{
         return false;
     }
     
-    public Transformation setLoot(Loot loot)
-    {
+    public Transformation setLoot(Loot loot){
         CardDealer dealer= CardDealer.getInstance();
         
         if(loot.getNHangars()>0) receiveHangar(dealer.nextHangar());
