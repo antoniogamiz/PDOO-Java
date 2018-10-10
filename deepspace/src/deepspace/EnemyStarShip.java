@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package deepspace;
 
 /**
  *
  * @author antonio
  */
+
+package deepspace;
+
 public class EnemyStarShip implements SpaceFighter{
     
     private float ammoPower;
@@ -17,8 +14,7 @@ public class EnemyStarShip implements SpaceFighter{
     private Loot loot;
     private Damage damage;
 
-    EnemyStarShip(String n, float a, float s, Loot l, Damage d)
-    {
+    EnemyStarShip(String n, float a, float s, Loot l, Damage d){
         name = n;
         ammoPower = a;
         shieldPower = s;
